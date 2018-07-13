@@ -1,0 +1,16 @@
+{
+  "name": "opt-out-cookies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build --no-source-maps index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cssnano": "^4.0.1",
+    "parcel-bundler": "^1.9.6",
+    "postcss-modules": "^1.1.0"
+  }
+}
