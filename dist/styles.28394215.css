@@ -3,13 +3,7 @@
   --text-color: #ffffff;
 }
 
-@font-face {
-  font-family: 'Montserrat';
-  font-weight: 400;
-  src: url('/assets/fonts/Montserrat-Regular.ttf') format('truetype');
-}
-
-.cookieBar {
+._cookieBar_114if_6 {
   position: fixed;
   width: 100%;
   top: 0;
@@ -23,17 +17,17 @@
   background-color: var(--bg-color);
 
   animation-duration: 1s;
-  animation-name: float-down;
+  animation-name: _float-down_114if_1;
   animation-timing-function: ease-out;
 }
 
-.cookieBar .annotation {
+._cookieBar_114if_6 ._annotation_114if_24 {
   color: var(--text-color);
   padding: 15px;
   text-align: center;
 }
 
-.button {
+._button_114if_30 {
   color: var(--text-color);
   cursor: pointer;
   justify-content: center;
@@ -53,25 +47,25 @@
   height: 2.25em;
 }
 
-.button.disable {
+._button_114if_30._disable_114if_50 {
   background-color: #ff3860;
 }
 
-.button.accept {
+._button_114if_30._accept_114if_54 {
   background-color: #23d160;
 }
 
-.buttonContainer {
+._buttonContainer_114if_58 {
   display: flex;
   justify-content: space-around;
   margin-bottom: 10px;
 }
 
-.policyLink {
+._policyLink_114if_64 {
   color: #00b0f9;
 }
 
-@keyframes float-down {
+@keyframes _float-down_114if_1 {
   0% {
     top: -250px;
   }
@@ -80,7 +74,7 @@
   }
 }
 
-@keyframes float-up {
+@keyframes _float-up_114if_1 {
   0% {
     top: 0px;
   }

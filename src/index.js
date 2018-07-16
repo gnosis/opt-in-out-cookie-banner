@@ -2,14 +2,6 @@ import styles from './styles.css'
 import './styles.css'
 
 const APP_ID = process.env.APP_ID || 'UA-XXXXX-Y'
-
-const getCookie = cname => {
-  const match = document.cookie.match('(^|;) ?' + cname + '=([^;]*)(;|$)')
-  return match ? match[2] : ''
-}
-
-const consentCookie = getCookie('consentCookie') // Initialise a variable to store the consent cookie
-
 const GOOGLE_ANALYTICS_URL = 'https://www.google-analytics.com/analytics.js'
 
 const bannerHTML = `
@@ -26,55 +18,64 @@ const bannerHTML = `
 const banner = document.createElement('div')
 banner.innerHTML = bannerHTML
 
-document.onload = getConsent()
-
-function loadGA() {
-  const script = document.createElement('script')
-  script.src = GOOGLE_ANALYTICS_URL
-  script.type = 'text/javascript'
-  document.head.appendChild(script)
-
-  script.onload = () => {
-    ga('create', APP_ID, 'auto')
-    ga('send', 'pageview')
-  }
-}
-
-function writeCookie(key, value, days) {
-    var date = new Date();
-
-    let expirationDate
-    if (days) {
-      // Get unix milliseconds at current time plus number of days
-      expirationDate = date.setTime(+ date + (days * 86400000)).toGMTString() //24 * 60 * 60 * 1000
-    }
-    console.log(days)
-    document.cookie = `${key}=${value};${expirationDate ? expirationDate : ''}; path=/`
-};
-
-function hideBanner() {
+const hideBanner = _ => {
   banner.firstChild.nextSibling.style.animationName = styles['float-up']
   setTimeout(() => {
     banner.style.display = 'none'
   }, 1000)
 }
 
-function getConsent() {
+const loadGA = _ => {
+  const script = document.createElement('script')
+  script.src = GOOGLE_ANALYTICS_URL
+  script.type = 'text/javascript'
+  document.head.appendChild(script)
+
+  script.onload = _ => {
+    ga('create', APP_ID, 'auto')
+    ga('send', 'pageview')
+  }
+}
+
+const getCookie = cname => {
+  const match = document.cookie.match('(^|;) ?' + cname + '=([^;]*)(;|$)')
+  return match ? match[2] : ''
+}
+
+const consentCookie = getCookie('consentCookie') // Initialise a variable to store the consent cookie
+
+const getConsent = _ => {
   if (consentCookie == '') {
     document.body.appendChild(banner)
 
     const acceptButton = document.getElementById('acceptButton')
     const disableButton = document.getElementById('disableButton')
 
-    acceptButton.onclick = () => {
+    acceptButton.onclick = _ => {
       loadGA()
       hideBanner()
       writeCookie('consentCookie', 'yes', process.env.acceptedCookieExpiration)
     }
 
-    disableButton.onclick = () => {
+    disableButton.onclick = _ => {
       writeCookie('consentCookie', 'no', process.env.disabledCookieExpiration)
       hideBanner()
     }
   }
 }
+
+const writeCookie = (key, value, days) => {
+  var date = new Date();
+
+  let expirationDate
+  if (days) {
+    // Get unix milliseconds at current time plus number of days
+    expirationDate = date.setTime(+ date + (days * 86400000)).toGMTString() //24 * 60 * 60 * 1000
+  }
+
+  document.cookie = `${key}=${value};${expirationDate ? expirationDate : ''}; path=/`
+};
+
+
+
+document.onload = getConsent()
