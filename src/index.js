@@ -20,7 +20,7 @@ banner.innerHTML = bannerHTML
 
 const hideBanner = _ => {
   banner.firstChild.nextSibling.style.animationName = styles['float-up']
-  setTimeout(() => {
+  setTimeout(_ => {
     banner.style.display = 'none'
   }, 1000)
 }
