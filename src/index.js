@@ -1,5 +1,4 @@
 import styles from './styles.css'
-import './styles.css'
 
 const APP_ID = process.env.APP_ID || 'UA-XXXXX-Y'
 const GOOGLE_ANALYTICS_URL = 'https://www.google-analytics.com/analytics.js'
