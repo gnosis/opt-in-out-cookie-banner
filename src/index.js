@@ -52,7 +52,7 @@ const writeCookie = (key, value, days) => {
     expirationDate = date.setTime(+ date + (days * 86400000)).toGMTString() //24 * 60 * 60 * 1000
   }
 
-  document.cookie = `${key}=${value};${expirationDate ? expirationDate : ''}; path=/`
+  document.cookie = `${key}=${value};expires=${expirationDate ? expirationDate : ''}; path=/`
 };
 
 const getConsent = _ => {
