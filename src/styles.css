@@ -1,6 +1,8 @@
 :root {
   --bg-color: #463f3f;
   --text-color: #ffffff;
+  --acceptButtonColor: #23d160;
+  --disableButtonColor: #ff3860;
 }
 
 .cookieBar {
@@ -48,11 +50,11 @@
 }
 
 .button.disable {
-  background-color: #ff3860;
+  background-color: var(--disableButtonColor);
 }
 
 .button.accept {
-  background-color: #23d160;
+  background-color: var(--acceptButtonColor);
 }
 
 .buttonContainer {

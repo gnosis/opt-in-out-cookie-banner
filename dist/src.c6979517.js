@@ -103,7 +103,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"../../.npm-packages/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -133,7 +133,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../../.npm-packages/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -164,23 +164,23 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../.npm-packages/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/styles.css":[function(require,module,exports) {
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/styles.css":[function(require,module,exports) {
 
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
 module.exports = {
-        "cookieBar": "_cookieBar_114if_6",
-        "float-down": "_float-down_114if_1",
-        "annotation": "_annotation_114if_24",
-        "button": "_button_114if_30",
-        "disable": "_disable_114if_50",
-        "accept": "_accept_114if_54",
-        "buttonContainer": "_buttonContainer_114if_58",
-        "policyLink": "_policyLink_114if_64",
-        "float-up": "_float-up_114if_1"
+        "cookieBar": "_cookieBar_dly46_8",
+        "float-down": "_float-down_dly46_1",
+        "annotation": "_annotation_dly46_26",
+        "button": "_button_dly46_32",
+        "disable": "_disable_dly46_52",
+        "accept": "_accept_dly46_56",
+        "buttonContainer": "_buttonContainer_dly46_60",
+        "policyLink": "_policyLink_dly46_66",
+        "float-up": "_float-up_dly46_1"
 };
-},{"_css_loader":"../../.npm-packages/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
 'use strict';
 
 var _styles = require('./styles.css');
@@ -190,6 +190,31 @@ var _styles2 = _interopRequireDefault(_styles);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var APP_ID = '' || 'UA-XXXXX-Y';
+var GOOGLE_ANALYTICS_URL = 'https://www.google-analytics.com/analytics.js';
+
+var bannerHTML = '\n    <div class="' + _styles2.default.cookieBar + '">\n        <span class="' + _styles2.default.annotation + '">We use cookies to give you the best experience and to help improve our website. Please read our <a href="' + '/cookiesPolicy.html' + '" target="_blank" class="' + _styles2.default.policyLink + '">Cookie Policy</a>\n            for more information. By clicking \u201CAccept Cookies,\u201D you agree to the storing of cookies on your device to\n            enhance site navigation and analyze site usage.</span>\n        <div class="' + _styles2.default.buttonContainer + '">\n            <button id="acceptButton" class="' + _styles2.default.button + ' ' + _styles2.default.accept + '">Accept Cookies</button>\n            <button id="disableButton" class="' + _styles2.default.button + ' ' + _styles2.default.disable + '">Disable Cookies</button>\n        </div>\n    </div>';
+
+var banner = document.createElement('div');
+banner.innerHTML = bannerHTML;
+
+var hideBanner = function hideBanner(_) {
+  banner.firstChild.nextSibling.style.animationName = _styles2.default['float-up'];
+  setTimeout(function (_) {
+    banner.style.display = 'none';
+  }, 1000);
+};
+
+var loadGA = function loadGA(_) {
+  var script = document.createElement('script');
+  script.src = GOOGLE_ANALYTICS_URL;
+  script.type = 'text/javascript';
+  document.head.appendChild(script);
+
+  script.onload = function (_) {
+    ga('create', APP_ID, 'auto');
+    ga('send', 'pageview');
+  };
+};
 
 var getCookie = function getCookie(cname) {
   var match = document.cookie.match('(^|;) ?' + cname + '=([^;]*)(;|$)');
@@ -198,66 +223,40 @@ var getCookie = function getCookie(cname) {
 
 var consentCookie = getCookie('consentCookie'); // Initialise a variable to store the consent cookie
 
-var GOOGLE_ANALYTICS_URL = 'https://www.google-analytics.com/analytics.js';
-
-var bannerHTML = '\n    <div class="' + _styles2.default.cookieBar + '">\n        <span class="' + _styles2.default.annotation + '">We use cookies to give you the best experience and to help improve our website. Please read our <a href="' + '/cookiesPolicy.html' + '" target="_blank" class="' + _styles2.default.policyLink + '">Cookie Policy</a>\n            for more information. By clicking \u201CAccept Cookies,\u201D you agree to the storing of cookies on your device to\n            enhance site navigation and analyze site usage.</span>\n        <div class="' + _styles2.default.buttonContainer + '">\n            <button id="acceptButton" class="' + _styles2.default.button + ' ' + _styles2.default.accept + '">Accept Cookies</button>\n            <button id="disableButton" class="' + _styles2.default.button + ' ' + _styles2.default.disable + '">Disable Cookies</button>\n        </div>\n    </div>';
-
-var banner = document.createElement('div');
-banner.innerHTML = bannerHTML;
-
-document.onload = getConsent();
-
-function loadGA() {
-  var script = document.createElement('script');
-  script.src = GOOGLE_ANALYTICS_URL;
-  script.type = 'text/javascript';
-  document.head.appendChild(script);
-
-  script.onload = function () {
-    ga('create', APP_ID, 'auto');
-    ga('send', 'pageview');
-  };
-}
-
-function writeCookie(key, value, days) {
+var writeCookie = function writeCookie(key, value, days) {
   var date = new Date();
 
   var expirationDate = void 0;
   if (days) {
     // Get unix milliseconds at current time plus number of days
-    expirationDate = date.setTime(+date + days * 86400000).toGMTString(); //24 * 60 * 60 * 1000
+    expirationDate = new Date(date.setTime(+date + days * 86400000)); //24 * 60 * 60 * 1000
   }
-  console.log(days);
-  document.cookie = key + '=' + value + ';' + (expirationDate ? expirationDate : '') + '; path=/';
+
+  document.cookie = key + '=' + value + ';expires=' + (expirationDate ? expirationDate.toUTCString() : '') + '; path=/';
 };
 
-function hideBanner() {
-  banner.firstChild.nextSibling.style.animationName = _styles2.default['float-up'];
-  setTimeout(function () {
-    banner.style.display = 'none';
-  }, 1000);
-}
-
-function getConsent() {
+var getConsent = function getConsent(_) {
   if (consentCookie == '') {
     document.body.appendChild(banner);
 
     var acceptButton = document.getElementById('acceptButton');
     var disableButton = document.getElementById('disableButton');
 
-    acceptButton.onclick = function () {
+    acceptButton.onclick = function (_) {
       loadGA();
-      hideBanner();
       writeCookie('consentCookie', 'yes', '10950');
+      hideBanner();
     };
 
-    disableButton.onclick = function () {
+    disableButton.onclick = function (_) {
       writeCookie('consentCookie', 'no', '7');
       hideBanner();
     };
   }
-}
-},{"./styles.css":"src/styles.css"}],"../../.npm-packages/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+};
+
+document.onload = getConsent();
+},{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -286,7 +285,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '57661' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '55534' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -427,5 +426,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["../../.npm-packages/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
 //# sourceMappingURL=/src.c6979517.map
