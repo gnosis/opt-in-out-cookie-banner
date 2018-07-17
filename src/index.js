@@ -32,6 +32,7 @@ const loadGA = _ => {
 
   script.onload = _ => {
     ga('create', APP_ID, 'auto')
+    ga('set', 'anonymizeIp', true);
     ga('send', 'pageview')
   }
 }
