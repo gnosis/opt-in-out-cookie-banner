@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=production parcel build --no-source-maps src/index.js",
+    "build": "NODE_ENV=production parcel build --no-source-maps --experimental-scope-hoisting src/index.js",
     "dev": "NODE_ENV=development parcel index.html"
   },
   "author": "",
