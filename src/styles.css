@@ -1,6 +1,6 @@
 :root {
-  --bg-color: #463f3f;
-  --text-color: #ffffff;
+  --bgColor: #463f3f;
+  --textColor: #ffffff;
   --acceptButtonColor: #23d160;
   --disableButtonColor: #ff3860;
 }
@@ -16,7 +16,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: var(--bg-color);
+  background-color: var(--bgColor);
 
   animation-duration: 1s;
   animation-name: float-down;
@@ -24,13 +24,13 @@
 }
 
 .cookieBar .annotation {
-  color: var(--text-color);
+  color: var(textColor);
   padding: 15px;
   text-align: center;
 }
 
 .button {
-  color: var(--text-color);
+  color: var(textColor);
   cursor: pointer;
   justify-content: center;
   padding-bottom: calc(0.375em - 1px);
