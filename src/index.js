@@ -41,8 +41,6 @@ const getCookie = cname => {
   return match ? match[2] : ''
 }
 
-const consentCookie = getCookie('consentCookie') // Initialise a variable to store the consent cookie
-
 const writeCookie = (key, value, days) => {
   const date = new Date();
 
@@ -54,6 +52,8 @@ const writeCookie = (key, value, days) => {
 
   document.cookie = `${key}=${value};expires=${expirationDate ? expirationDate.toUTCString() : ''}; path=/`
 };
+
+const consentCookie = getCookie('consentCookie') // Initialise a variable to store the consent cookie
 
 const getConsent = _ => {
   if (consentCookie == '') {
