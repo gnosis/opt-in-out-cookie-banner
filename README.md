@@ -16,7 +16,7 @@ npm i
 
 ## Running local test environment
 
-Start local server on localhost:1234 by running `dev` command:
+Start local server on http://localhost:1234 by running `dev` command:
 
 yarn:
 
@@ -28,4 +28,21 @@ npm:
 
 ```shell
 npm run dev
+```
+
+This command will run a server with a blank html page and injected script
+
+## Customization
+
+### CSS Styles
+
+`src/styles.css`:
+
+```css
+:root {
+  --bg-color: #463f3f;
+  --text-color: #ffffff;
+  --acceptButtonColor: #23d160;
+  --disableButtonColor: #ff3860;
+}
 ```
