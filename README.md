@@ -36,7 +36,7 @@ This command will run a server with a blank html page and injected script
 
 ### CSS Styles
 
-You can change colors of four elements: background of the banner (_--bgColor_), color of text (_--textColor_) and colors of the buttons (_--acceptButtonColor_ and _--disableButtonColor_).
+You can change colors of four elements: background of the banner (__--bgColor__), color of text (__--textColor__) and colors of the buttons (__--acceptButtonColor__ and __-disableButtonColor__).
 To do this, go to and change these lines of code.
 
 `src/styles.css`:
