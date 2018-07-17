@@ -74,6 +74,8 @@ const getConsent = _ => {
       writeCookie('consentCookie', 'no', process.env.disabledCookieExpiration)
       hideBanner()
     }
+  } else if (consentCookie === 'yes') {
+    loadGA()
   }
 }
 
