@@ -28,11 +28,12 @@ const loadGA = _ => {
   const script = document.createElement('script')
   script.src = GOOGLE_ANALYTICS_URL
   script.type = 'text/javascript'
+  script.async = true
   document.head.appendChild(script)
 
   script.onload = _ => {
     ga('create', APP_ID, 'auto')
-    ga('set', 'anonymizeIp', true);
+    ga('set', 'anonymizeIp', true)
     ga('send', 'pageview')
   }
 }
