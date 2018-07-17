@@ -64,8 +64,8 @@ const getConsent = _ => {
 
     acceptButton.onclick = _ => {
       loadGA()
-      hideBanner()
       writeCookie('consentCookie', 'yes', process.env.acceptedCookieExpiration)
+      hideBanner()
     }
 
     disableButton.onclick = _ => {
