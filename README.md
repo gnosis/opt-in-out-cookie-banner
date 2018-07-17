@@ -36,12 +36,14 @@ This command will run a server with a blank html page and injected script
 
 ### CSS Styles
 
-`src/styles.css`:
+You can change colors of four elements: background of the banner (--bgColor), color of text (--textColor) and colors of the buttons (--acceptButtonColor and --disableButtonColor).
+To do this, go to and change these lines of code.
 
+`src/styles.css`:
 ```css
 :root {
-  --bg-color: #463f3f;
-  --text-color: #ffffff;
+  --bgColor: #463f3f;
+  --textColor: #ffffff;
   --acceptButtonColor: #23d160;
   --disableButtonColor: #ff3860;
 }
