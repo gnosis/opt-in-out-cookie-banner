@@ -62,3 +62,8 @@ typings/
 
 # parcel cache
 .cache
+
+# prod build
+dist/
+
+.DS_Store
