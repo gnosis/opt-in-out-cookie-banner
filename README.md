@@ -2,7 +2,7 @@
 A script that shows a banner asking the user if he wants to enable cookies
 
 ## Installing dependencies
-Install the dependencies:
+yarn:
 
 ```shell
 yarn add
@@ -15,6 +15,9 @@ npm i
 ```
 
 ## Running local test environment
+
+Start local server on localhost:1234 by running `dev` command:
+
 yarn:
 
 ```shell
