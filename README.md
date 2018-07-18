@@ -65,3 +65,24 @@ cookiesPolicyLink='/cookiesPolicy.html'
 `disabledCookieExpiration` - Almost the same as `acceptedCookieExpiration` but for disabling cookies  
 `cookiesPolicyLink` - an absolute link to the cookies policy  
 
+## Usage
+
+- Prepare environment configuration for your needs
+- Run `npm run build` or `yarn build`
+- `dist` folder will be created in the root directory with two files: `cookieBanner.css` and `cookieBanner.js`
+- Add it to the html file of the website like so:
+```html
+<head>
+    ...
+    <link rel="stylesheet" href="/cookieBanner.css" />
+    ...
+</head>
+<body>
+  ...
+  <script src="/cookieBanner.js"></script>
+  ...
+</body>
+```
+- You can also add  `async` or `defer` attributes to the script line
+
+
