@@ -48,3 +48,20 @@ To do this, go to and change these lines of code.
   --disableButtonColor: #ff3860;
 }
 ```
+
+## Environment configurations
+
+Environment configuration can be changed by editing either `.env.development` (used for testing) or `.env.production` (used for final build)
+Each environment configuration contains four entries:
+```
+APP_ID=''
+acceptedCookieExpiration='10950'
+disabledCookieExpiration='7'
+cookiesPolicyLink='/cookiesPolicy.html'
+```
+
+`APP_ID` - Google Analytics Application identifier
+`acceptedCookieExpiration` - Represents for how many __days__ user's preference for using cookies is saved. 
+`disabledCookieExpiration` - Almost the same as `acceptedCookieExpiration` but for disabling cookies
+`cookiesPolicyLink` - an absolute link to the cookies policy
+
