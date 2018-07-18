@@ -84,5 +84,6 @@ cookiesPolicyLink='/cookiesPolicy.html'
 </body>
 ```
 - You can also add  `async` or `defer` attributes to the script line
+- You're good to go :)
 
 
