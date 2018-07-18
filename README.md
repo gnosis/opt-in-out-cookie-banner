@@ -37,7 +37,7 @@ This command will run a server with a blank html page and injected script
 ### CSS Styles
 
 You can change colors of four elements: background of the banner (__--bgColor__), color of text (__--textColor__) and colors of the buttons (__--acceptButtonColor__ and __-disableButtonColor__).
-To do this, go to and change these lines of code.
+To do this, go to `src/styles.css` and change these lines of code.
 
 `src/styles.css`:
 ```css
@@ -60,8 +60,8 @@ disabledCookieExpiration='7'
 cookiesPolicyLink='/cookiesPolicy.html'
 ```
 
-`APP_ID` - Google Analytics Application identifier
-`acceptedCookieExpiration` - Represents for how many __days__ user's preference for using cookies is saved. 
-`disabledCookieExpiration` - Almost the same as `acceptedCookieExpiration` but for disabling cookies
-`cookiesPolicyLink` - an absolute link to the cookies policy
+`APP_ID` - Google Analytics Application identifier  
+`acceptedCookieExpiration` - Represents for how many __days__ user's preference for using cookies is saved  
+`disabledCookieExpiration` - Almost the same as `acceptedCookieExpiration` but for disabling cookies  
+`cookiesPolicyLink` - an absolute link to the cookies policy  
 
